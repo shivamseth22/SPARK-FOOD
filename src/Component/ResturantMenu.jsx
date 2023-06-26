@@ -25,7 +25,7 @@ const ResturantMenu = () => {
     <div className="max-w-[800px] min-w-[800px] m-auto mt-10">
       {
         /* console.log(menu[0]?.card?.card?.info) */
-        console.log(menu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+        console.log(menu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[5])
 
         /* {menu &&
         Object.values(menu[0])?.map((res) => (
@@ -33,57 +33,88 @@ const ResturantMenu = () => {
         ))} */
       }
       <div>
-      <div className="flex justify-between">
-        <div>
-          <h1 className="font-bold text-lg">
-            {menu[0]?.card?.card?.info?.name}
-          </h1>
-          <h1 className="flex text-sm">
-            {menu[0]?.card?.card?.info?.cuisines}
-          </h1>
-          <div className="flex text-sm gap-1">
-            <h1>{menu[0]?.card?.card?.info?.areaName}</h1>
-            <h1>{menu[0]?.card?.card?.info?.sla?.lastMileTravelString}</h1>
+        <div className="flex justify-between">
+          <div>
+            <h1 className="font-bold text-lg">
+              {menu[0]?.card?.card?.info?.name}
+            </h1>
+            <h1 className="flex text-sm">
+              {menu[0]?.card?.card?.info?.cuisines}
+            </h1>
+            <div className="flex text-sm gap-1">
+              <h1>{menu[0]?.card?.card?.info?.areaName}</h1>
+              <h1>{menu[0]?.card?.card?.info?.sla?.lastMileTravelString}</h1>
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center border-solid border-2">
+            <div className="flex items-center ">
+              <AiOutlineStar />
+              <h1>{menu[0]?.card?.card?.info?.avgRatingString}</h1>
+            </div>
+            <h1 className="text-xs">
+              {menu[0]?.card?.card?.info?.totalRatingsString}
+            </h1>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center border-solid border-2">
-          <div className="flex items-center ">
-            <AiOutlineStar />
-            <h1>{menu[0]?.card?.card?.info?.avgRatingString}</h1>
-          </div>
-          <h1 className="text-xs">
-            {menu[0]?.card?.card?.info?.totalRatingsString}
-          </h1>
+      </div>
+      <div className="flex my-5 gap-10 font-bold">
+        <h1>{menu[0]?.card?.card?.info?.sla?.slaString}</h1>
+        <h1>{menu[0]?.card?.card?.info?.costForTwoMessage}</h1>
+      </div>
+      <div>
+        <div className="flex  justify-between ">
+          {menu[1]?.card?.card?.gridElements?.infoWithStyle?.offers &&
+            menu[1]?.card?.card?.gridElements?.infoWithStyle?.offers?.map(
+              (inner) => (
+                <div className="bg-red-200 border-solid border-2 border-black min-w-200px">
+                  <h1 className="text-sm">{inner?.info?.header}</h1>
+                  <div className="text-xs flex divide-x-2">
+                    <h1>{inner?.info?.couponCode}</h1>
+                    <h1>{inner?.info?.description}</h1>
+                  </div>
+                </div>
+              )
+            )}
         </div>
+        {/* <h1>{menu[0]?.card?.card?.info?.aggregatedDiscountInfo?.shortDescriptionList[1]?.meta}</h1> */}
       </div>
-      {/* totalRatingsString */}
-    </div>
-    <div className="flex my-5 gap-10 font-bold">
-      <h1>{menu[0]?.card?.card?.info?.sla?.slaString}</h1>
-      <h1>{menu[0]?.card?.card?.info?.costForTwoMessage}</h1>
-    </div>
-    <div>
-    <div className="flex  justify-between ">
-    {(menu[1]?.card?.card?.gridElements?.infoWithStyle?.offers)?.map((inner)=>(
-      <div className="bg-red-200 border-solid border-2 border-black min-w-200px">
-      <h1 className="text-sm">{inner.info.header}</h1>
-      <div className="text-xs flex divide-x-2">
-      <h1>{inner.info.couponCode}</h1>
-      <h1>{inner.info.description}</h1>
-      </div>
-      </div>
-    ))}
-    </div>
-    {/* <h1>{menu[0]?.card?.card?.info?.aggregatedDiscountInfo?.shortDescriptionList[1]?.meta}</h1> */}
-    </div>
 
-    <div>
-      {
-        (menu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
-      }
-    </div>
+      <div>
+        {(menu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards) &&
+          Object.values(menu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)?.map((item) => (
+          <>
+            <h1 className="text-lg font-bold">{item?.card?.card?.title}</h1>
+            {(item?.card?.card?.itemCards)&&
+  Object.values(item?.card?.card?.itemCards)?.map((innerItem) =>(
+ 
+ 
+  <>
+   <h1>{innerItem?.card?.info?.name}</h1> 
+   </>
+  ))}
+          </>
+          
+          ))}
+      </div>
+      <div>
+       
+      </div>
     </div>
   );
 };
 
 export default ResturantMenu;
+
+
+
+
+
+
+
+
+
+
+// {(item?.card?.card?.categorie?.itemCards)&&
+//   (item?.card?.card?.categorie?.itemCards)?.map((middleItem)=>(
+//   console.log(middleItem)
+// ))}
