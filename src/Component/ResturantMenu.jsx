@@ -25,7 +25,7 @@ const ResturantMenu = () => {
     <div className="max-w-[800px] min-w-[800px] m-auto mt-10">
       {
         /* console.log(menu[0]?.card?.card?.info) */
-        console.log(menu[1]?.card?.card?.gridElements?.infoWithStyle?.offers)
+        console.log(menu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
 
         /* {menu &&
         Object.values(menu[0])?.map((res) => (
@@ -58,7 +58,7 @@ const ResturantMenu = () => {
       </div>
       {/* totalRatingsString */}
     </div>
-    <div className="flex my-5 gap-10 ">
+    <div className="flex my-5 gap-10 font-bold">
       <h1>{menu[0]?.card?.card?.info?.sla?.slaString}</h1>
       <h1>{menu[0]?.card?.card?.info?.costForTwoMessage}</h1>
     </div>
@@ -78,7 +78,9 @@ const ResturantMenu = () => {
     </div>
 
     <div>
-
+      {
+        (menu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+      }
     </div>
     </div>
   );
