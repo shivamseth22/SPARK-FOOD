@@ -114,7 +114,7 @@ export default ResturantMenu;
 
 
 
-// {(item?.card?.card?.categorie?.itemCards)&&
-//   (item?.card?.card?.categorie?.itemCards)?.map((middleItem)=>(
-//   console.log(middleItem)
-// ))}
+{(item?.card?.card?.categorie?.itemCards)&&
+  (item?.card?.card?.categorie?.itemCards)?.map((middleItem)=>(
+  console.log(middleItem)
+))}
